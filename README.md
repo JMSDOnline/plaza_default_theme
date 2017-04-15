@@ -1,0 +1,1 @@
+# plaza_default_theme
