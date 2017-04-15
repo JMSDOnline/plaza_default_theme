@@ -1,0 +1,179 @@
+<script type="text/javascript">
+ /*!
+ * Smooth Scroll - v1.4.10 - 2013-03-02
+ * https://github.com/kswedberg/jquery-smooth-scroll
+ * Copyright (c) 2013 Karl Swedberg
+ * Licensed MIT (https://github.com/kswedberg/jquery-smooth-scroll/blob/master/LICENSE-MIT)
+ */
+!function(l){function t(l){return l.replace(/(:|\.)/g,"\\$1")}var e="1.4.10",o={exclude:[],excludeWithin:[],offset:0,direction:"top",scrollElement:null,scrollTarget:null,beforeScroll:function(){},afterScroll:function(){},easing:"swing",speed:400,autoCoefficent:2},r=function(t){var e=[],o=!1,r=t.dir&&"left"==t.dir?"scrollLeft":"scrollTop";return this.each(function(){if(this!=document&&this!=window){var t=l(this);t[r]()>0?e.push(this):(t[r](1),o=t[r]()>0,o&&e.push(this),t[r](0))}}),e.length||this.each(function(){"BODY"===this.nodeName&&(e=[this])}),"first"===t.el&&e.length>1&&(e=[e[0]]),e};l.fn.extend({scrollable:function(l){var t=r.call(this,{dir:l});return this.pushStack(t)},firstScrollable:function(l){var t=r.call(this,{el:"first",dir:l});return this.pushStack(t)},smoothScroll:function(e){e=e||{};var o=l.extend({},l.fn.smoothScroll.defaults,e),r=l.smoothScroll.filterPath(location.pathname);return this.unbind("click.smoothscroll").bind("click.smoothscroll",function(e){var n=this,s=l(this),c=o.exclude,i=o.excludeWithin,a=0,f=0,h=!0,u={},d=location.hostname===n.hostname||!n.hostname,m=o.scrollTarget||(l.smoothScroll.filterPath(n.pathname)||r)===r,p=t(n.hash);if(o.scrollTarget||d&&m&&p){for(;h&&c.length>a;)s.is(t(c[a++]))&&(h=!1);for(;h&&i.length>f;)s.closest(i[f++]).length&&(h=!1)}else h=!1;h&&(e.preventDefault(),l.extend(u,o,{scrollTarget:o.scrollTarget||p,link:n}),l.smoothScroll(u))}),this}}),l.smoothScroll=function(t,e){var o,r,n,s,c=0,i="offset",a="scrollTop",f={},h={};"number"==typeof t?(o=l.fn.smoothScroll.defaults,n=t):(o=l.extend({},l.fn.smoothScroll.defaults,t||{}),o.scrollElement&&(i="position","static"==o.scrollElement.css("position")&&o.scrollElement.css("position","relative"))),o=l.extend({link:null},o),a="left"==o.direction?"scrollLeft":a,o.scrollElement?(r=o.scrollElement,c=r[a]()):r=l("html, body").firstScrollable(),o.beforeScroll.call(r,o),n="number"==typeof t?t:e||l(o.scrollTarget)[i]()&&l(o.scrollTarget)[i]()[o.direction]||0,f[a]=n+c+o.offset,s=o.speed,"auto"===s&&(s=f[a]||r.scrollTop(),s/=o.autoCoefficent),h={duration:s,easing:o.easing,complete:function(){o.afterScroll.call(o.link,o)}},o.step&&(h.step=o.step),r.length?r.stop().animate(f,h):o.afterScroll.call(o.link,o)},l.smoothScroll.version=e,l.smoothScroll.filterPath=function(l){return l.replace(/^\//,"").replace(/(index|default).[a-zA-Z]{3,4}$/,"").replace(/\/$/,"")},l.fn.smoothScroll.defaults=o}(jQuery);
+</script>
+
+<script type="text/javascript">
+
+var mr_firstSectionHeight,
+    mr_nav,
+    mr_fixedAt,
+    mr_navOuterHeight,
+    mr_navScrolled = false,
+    mr_navFixed = true,
+    mr_outOfSight = false,
+    mr_floatingProjectSections,
+    mr_scrollTop = 0;
+
+$(function() {
+
+// Smooth scroll to inner links
+
+$('.inner-link').each(function(){
+    var href = $(this).attr('href');
+    if(href.charAt(0) !== "#"){
+        $(this).removeClass('inner-link');
+    }
+});
+
+if($('.inner-link').length){
+$('.inner-link').smoothScroll({
+  offset: -55,
+  speed: 800
+});
+}
+
+// Update scroll variable for scrolling functions
+
+addEventListener('scroll', function() {
+    mr_scrollTop = window.pageYOffset;
+}, false);
+
+
+    // Navigation
+
+    if (!$('nav').hasClass('fixed') && !$('nav').hasClass('absolute')) {
+
+        // Make nav container height of nav
+
+        $('.nav-container').css('min-height', $('nav').outerHeight(true));
+
+        $(window).resize(function() {
+            $('.nav-container').css('min-height', $('nav').outerHeight(true));
+        });
+
+    } else {
+        $('body').addClass('nav-is-overlay');
+    }
+
+    if ($('nav').hasClass('bg-dark')) {
+        $('.nav-container').addClass('bg-dark');
+    }
+
+    // Mobile Menu
+
+    $('.mobile-toggle').click(function() {
+        $('.nav-bar').toggleClass('nav-open');
+        $(this).toggleClass('active');
+    });
+
+    $('.menu li').click(function(e) {
+        if (!e) e = window.event;
+        e.stopPropagation();
+        if ($(this).find('ul').length) {
+            $(this).toggleClass('toggle-sub');
+        } else {
+            $(this).parents('.toggle-sub').removeClass('toggle-sub');
+        }
+    });
+
+    $('.menu li a').click(function() {
+        if ($(this).hasClass('inner-link')){
+            $(this).closest('.nav-bar').removeClass('nav-open');
+        }
+    });
+
+    $('.module.widget-handle').click(function() {
+        $(this).toggleClass('toggle-widget-handle');
+    });
+
+    $('.search-widget-handle .search-form input').click(function(e){
+        if (!e) e = window.event;
+        e.stopPropagation();
+    });
+
+});
+
+function updateNav() {
+
+    var scrollY = mr_scrollTop;
+
+    if (scrollY <= 0) {
+        if (mr_navFixed) {
+            mr_navFixed = false;
+            mr_nav.removeClass('fixed');
+        }
+        if (mr_outOfSight) {
+            mr_outOfSight = false;
+            mr_nav.removeClass('outOfSight');
+        }
+        if (mr_navScrolled) {
+            mr_navScrolled = false;
+            mr_nav.removeClass('scrolled');
+        }
+        return;
+    }
+
+    if (scrollY > mr_navOuterHeight + mr_fixedAt) {
+        if (!mr_navScrolled) {
+            mr_nav.addClass('scrolled');
+            mr_navScrolled = true;
+            return;
+        }
+    } else {
+        if (scrollY > mr_navOuterHeight) {
+            if (!mr_navFixed) {
+                mr_nav.addClass('fixed');
+                mr_navFixed = true;
+            }
+
+            if (scrollY > mr_navOuterHeight + 10) {
+                if (!mr_outOfSight) {
+                    mr_nav.addClass('outOfSight');
+                    mr_outOfSight = true;
+                }
+            } else {
+                if (mr_outOfSight) {
+                    mr_outOfSight = false;
+                    mr_nav.removeClass('outOfSight');
+                }
+            }
+        } else {
+            if (mr_navFixed) {
+                mr_navFixed = false;
+                mr_nav.removeClass('fixed');
+            }
+            if (mr_outOfSight) {
+                mr_outOfSight = false;
+                mr_nav.removeClass('outOfSight');
+            }
+        }
+
+        if (mr_navScrolled) {
+            mr_navScrolled = false;
+            mr_nav.removeClass('scrolled');
+        }
+
+    }
+}
+
+</script>
+
+<script type="text/javascript">
+    var _paq = _paq || [];
+    _paq.push(["enableLinkTracking"]);
+    (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://quickbox.io/analytics/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "2"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+<noscript><p><img src="//quickbox.io/analytics/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
