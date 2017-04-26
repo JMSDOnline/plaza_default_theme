@@ -2919,3 +2919,68 @@ p>code, li>code, pre>code {
 .visible-lg-inline-block {
   display: none !important;
 }
+
+/*!---------- 36. FOOTERS ----------*/
+footer.bg-dark a {
+  color: #fff;
+}
+.footer-1 .logo {
+  max-height: 30px;
+}
+.footer-1 .sub {
+  opacity: .5;
+}
+.footer-1 {
+  font-family: inherit;
+  font-size: 12px;
+}
+.social-list {
+  margin: 0;
+}
+.image-bg .social-list a {
+  color: #fff;
+}
+.bg-dark .social-list a,
+.image-bg .social-list a {
+  color: #fff;
+  opacity: .5;
+}
+.bg-dark .social-list a:hover {
+  opacity: 1;
+}
+.image-bg .social-list a {
+  opacity: 1;
+}
+.bg-light .social-list a {
+  color: #222;
+}
+.back-to-top {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}
+.back-to-top:hover {
+  opacity: 1;
+}
+.bg-dark .back-to-top {
+  background: transparent none repeat scroll 0 0;
+  border-color: #fff;
+  border-radius: 0;
+  border-style: solid;
+  border-width: 2px;
+  color: #eee;
+  font-family: inherit,Helvetica,Arial,sans-serif;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+  padding: 0 26px;
+  text-transform: uppercase;
+}
+.bg-dark .back-to-top:active,
+.bg-dark .back-to-top:focus {
+  color: #fff;
+}
+.bg-dark .back-to-top:hover {
+  background: none;
+}
