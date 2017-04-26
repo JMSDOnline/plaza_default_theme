@@ -115,11 +115,16 @@ body textarea {
 .full-width {
     margin-left: 12px;
 }
+.docked .d-header {
+    position: fixed;
+    backface-visibility: hidden;
+    top: 55px;
+}
 #main-outlet {
   box-sizing: border-box;
   width: 100%;
   max-width: none;
-  padding: 82px 0 0 0;
+  padding: 111px 0 0 0;
 }
 .badge-category-bg {
   position: relative;
