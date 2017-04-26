@@ -1409,7 +1409,17 @@ nav.bg-dark[role="top"] .logo-light {
 .color-white {
   color: #fff;
 }
+
 /*!---------- 5. SECTIONS ----------*/
+section,
+footer {
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+footer {
+  padding: 72px 0;
+}
 .bg-dark h1,
 nav[role="top"].bg-dark h1,
 footer.bg-dark h1,
@@ -2939,6 +2949,10 @@ p>code, li>code, pre>code {
   .thin {
     font-weight: 300 !important;
   }
+}
+
+.text-right {
+  text-align: right;
 }
 
 /*!---------- 36. FOOTERS ----------*/
