@@ -2,32 +2,6 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800,900);
 @import url(https://quickbox.io/css/qbio-icons.css);
 
-/*!
-// Contents
-// ------------------------------------------------
-
- 1. Global Styles
- 2. Mixins
- 3. Typography
- 4. Colours
- 5. Sections
- 6. Buttons
- 7. nav
- 8. Tooltips
- 9. Alerts
- 10. Forum Menus
- 11. Footers
- 12. Bootstrap
-
-/*!---------- 1. GLOBAL STYLES ----------*/
-
-body[class*="category-"] #homepage-banner {
-    display: none;
-}
-/*body #homepage-banner {
-    display: none;
-}*/
-
 nav.bg-dark[role="top"] .logo-light {
   display: inline;
   height: auto;
@@ -396,19 +370,6 @@ ul.lead li {
   color: #fff;
 }
 /*!---------- 5. SECTIONS ----------*/
-section,
-footer {
-  *padding: 96px 0;
-  *position: relative;
-  *overflow: hidden;
-}
-footer {
-  margin-top: 30px;
-  padding: 72px 0;
-}
-.fullscreen {
-  height: 100vh;
-}
 .bg-dark h1,
 nav[role="top"].bg-dark h1,
 footer.bg-dark h1,
