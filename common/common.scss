@@ -2240,16 +2240,17 @@ p>code, li>code, pre>code {
 }
 
 .chat-btn {
-  background: #fff none repeat scroll 0 0;
-  clear: both;
-  color: #333 !important;
-  font-size: 10px;
-  line-height: 14px;
-  padding: 0 6px;
-  position: relative;
-  text-align: center;
-  top: 6px;
-  width: 100% !important;
+    background: #fff none repeat scroll 0 0;
+    clear: both;
+    color: #333!important;
+    font-size: 10px;
+    line-height: 14px;
+    padding: 0 6px;
+    position: relative;
+    text-align: center;
+    top: 6px;
+    width: 90%!important;
+    margin: 0 auto;
 }
 
 .chat-btn:hover,.chat-btn:focus {
