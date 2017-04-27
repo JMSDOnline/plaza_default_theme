@@ -651,7 +651,7 @@ pre code {
   background-color: rgba(52, 52, 52, 0.05);
 }
 .list-controls .category-dropdown-menu {
-  left: 0;
+  /*left: 0;*/
   margin-top: 6px;
   border-radius: 6px;
   padding: 12px;
@@ -1416,8 +1416,7 @@ nav.bg-dark[role="top"] .logo-light {
 }
 
 /*!---------- 5. SECTIONS ----------*/
-section,
-footer {
+section > footer {
   /*padding: 96px 0;*/
   position: relative;
   overflow: hidden;
