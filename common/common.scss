@@ -796,7 +796,7 @@ pre code {
   background-color: rgba(52, 52, 52, 0.05);
 }
 #topic-title {
-  width: calc(100% - 16px);
+  width: calc(90% - 16px);
   max-width: 1110px;
   margin-left: auto;
   margin-right: auto;
@@ -823,7 +823,7 @@ pre code {
   color: #343434;
 }
 .posts {
-  width: calc(100% - 16px);
+  width: calc(90% - 16px);
   max-width: 1110px;
   margin-left: auto;
   margin-right: auto;
@@ -840,7 +840,7 @@ pre code {
 .posts .topic-body .contents {
   margin-top: 28px;
   margin-right: 10px;
-  margin-left: -10px;
+  margin-left: 10px;
   width: calc(100% + 5px);
   line-height: 1.5;
 }
