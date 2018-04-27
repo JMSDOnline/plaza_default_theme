@@ -3826,6 +3826,14 @@ footer.bg-dark a {
     *position: relative;
 }
 
+.container>.show-badge {
+    width: calc(90% - 16px);
+    max-width: 1110px;
+    margin: 0 auto;
+    padding-top: 60px;
+    padding-bottom: calc(25% - 10%);
+}
+
 .cooked small,
 .d-editor-preview small {
     font-size: 1.25rem !important;
