@@ -1696,6 +1696,12 @@ section.ember-view {
     max-width: 1110px;
 }
 
+.group-outlet {
+    position: relative;
+    width: calc(90% - 16px);
+    margin: 0 auto;
+}
+
 section>footer {
     /*padding: 96px 0;*/
     position: relative;
