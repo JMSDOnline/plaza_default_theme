@@ -1483,11 +1483,16 @@ section.user-main .about.collapsed-info .details .controls ul a {
 }
 
 section.user-main .user-navigation {
-    display: inline-block;
+    /*display: inline-block;
     max-width: 230px;
     float: none;
     text-align: left;
-    margin-right: 3.6%;
+    margin-right: 3.6%;*/
+    display: inline-block;
+    max-width: 150px;
+    float: none;
+    text-align: left;
+    margin-right: 15px;
 }
 
 section.user-main .user-navigation ul {
@@ -1506,24 +1511,24 @@ section.user-main .user-navigation li {
 }
 
 section.user-main .user-navigation li:first-child {
-    border-top-right-radius: 6px;
-    border-top-left-radius: 6px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
 }
 
 section.user-main .user-navigation li:first-child a {
-    border-top-right-radius: 6px;
-    border-top-left-radius: 6px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
 }
 
 section.user-main .user-navigation li:last-child {
     border-bottom: 1px solid #ddd;
-    border-bottom-right-radius: 6px;
-    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 section.user-main .user-navigation li:last-child a {
-    border-bottom-right-radius: 6px;
-    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 section.user-main .user-navigation li.active {
