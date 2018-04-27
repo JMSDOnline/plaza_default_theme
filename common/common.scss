@@ -1699,6 +1699,7 @@ section.ember-view {
 .group-outlet {
     position: relative;
     width: calc(90% - 16px);
+    max-width: 1110px;
     margin: 0 auto;
 }
 
