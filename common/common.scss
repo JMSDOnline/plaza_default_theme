@@ -1688,6 +1688,14 @@ nav.bg-dark[role="top"] .logo-light {
 
 /*!---------- 5. SECTIONS ----------*/
 
+section #ember1573 {
+    width: calc(90% - 16px);
+    margin: 0 auto;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    max-width: 1110px;
+}
+
 section>footer {
     /*padding: 96px 0;*/
     position: relative;
