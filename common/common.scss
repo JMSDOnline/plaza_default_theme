@@ -362,6 +362,10 @@ pre code {
   word-wrap: break-word;
 }
 
+pre.no-overflow {
+  overflow: hidden !important;
+}
+
 #banner {
   width: calc(100% - 16px);
   max-width: 1110px;
