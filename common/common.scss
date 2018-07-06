@@ -3850,3 +3850,17 @@ footer.bg-dark a {
   background: rgba(0, 0, 0, .06);
   padding: 5px;
 }
+
+.groups-table .groups-info .avatar-flair {
+    background-size: 100%;
+    height: 30px;
+    border-radius: 50%;
+    width: 30px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 5px;
+}
+.groups-table .groups-info .avatar-flair i {
+  font-size: 20px !important;
+  margin-top: 6px;
+}
